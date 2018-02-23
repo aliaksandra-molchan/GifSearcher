@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="gifItemViewModel"
+            type="com.aliaksandramolchan.gifsearcher.viewmodel.GifItemViewModel" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/cardview_layout_margin"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/cardFrameLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:gifUrl="@{gifItemViewModel.url}"
+                app:onLayoutChangeListener="@{gifItemViewModel.onLayoutChangeListener}" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{gifItemViewModel.progressBar}" />
+        </FrameLayout>
+    </android.support.v7.widget.CardView>
+</layout>
